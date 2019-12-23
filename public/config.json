@@ -1,0 +1,13 @@
+{
+    "APP_NAME": "todo-agg-app",
+    "ENABLE_LOGGING": true,
+    "CHILDREN": {
+        "TODO_FORM": {
+            "APP_NAME": "todo_form_app",
+            "BASE_URL": "http://localhost:5000/static/",
+            "JS_PATH": "js/main.js",
+            "CSS_PATH": "css/main.css",
+            "API_CONFIG": "/config/api_config.json"
+        }
+    }
+}
