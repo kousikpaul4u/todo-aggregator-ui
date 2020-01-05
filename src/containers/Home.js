@@ -1,9 +1,6 @@
 import React from 'react';
 import env from 'env.config';
-import RootContext from "context/root-context";
 export default class Home extends React.Component {
-
-    static contextType = RootContext;
 
     constructor(props) {
         super(props);
