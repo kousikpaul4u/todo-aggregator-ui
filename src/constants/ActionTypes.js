@@ -3,5 +3,6 @@ export const common = {
     SET_LOADER: "SET_LOADER",
     SET_ERROR: "SET_ERROR",
     SET_SUCCESS: "SET_SUCCESS",
-    SEARCH: "SEARCH"
+    SEARCH: "SEARCH",
+    SET_USERNAME_ASYNC: "SET_USERNAME_ASYNC"
 };

@@ -16,6 +16,8 @@ export const commonReducer = (state = initialState, action) => {
             return { ...state, error: action.payload };
         case common.SET_SUCCESS:
             return { ...state, success: action.payload };
+        case common.SET_USERNAME_ASYNC:
+            return { ...state, username: action.payload };
         default:
             return state;
     }

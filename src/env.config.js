@@ -4,10 +4,18 @@ const DEV_ENV = {
     "APP_NAME": "todo-agg-app",
     "ENABLE_LOGGING": true,
     "CHILDREN": {
-        "TODO_FORM": {
+        "TODO_HEADR": {
             "APP_NAME": "todo_header_app",
             "ENABLE_LOGGING": true,
             "BASE_URL": "http://localhost:5000/static/",
+            "JS_PATH": "js/main.js",
+            "CSS_PATH": "css/main.css",
+            "API_CONFIG": "/config/api_config.json"
+        },
+        "TODO_SIGNUP": {
+            "APP_NAME": "todo_signup_app",
+            "ENABLE_LOGGING": true,
+            "BASE_URL": "http://localhost:5001/static/",
             "JS_PATH": "js/main.js",
             "CSS_PATH": "css/main.css",
             "API_CONFIG": "/config/api_config.json"

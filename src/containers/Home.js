@@ -1,7 +1,9 @@
 import React from 'react';
 import env from 'env.config';
-
+import RootContext from "context/root-context";
 export default class Home extends React.Component {
+
+    static contextType = RootContext;
 
     constructor(props) {
         super(props);
@@ -28,31 +30,42 @@ export default class Home extends React.Component {
         this.setState({ link })
     }
 
-    renderForm() {
-        const todoFormJs = env.CHILDREN.TODO_FORM.BASE_URL + env.CHILDREN.TODO_FORM.JS_PATH;
-        const todoFormCss = env.CHILDREN.TODO_FORM.BASE_URL + env.CHILDREN.TODO_FORM.CSS_PATH;
+    renderHeader() {
+        const todoFormJs = env.CHILDREN.TODO_HEADR.BASE_URL + env.CHILDREN.TODO_HEADR.JS_PATH;
+        const todoFormCss = env.CHILDREN.TODO_HEADR.BASE_URL + env.CHILDREN.TODO_HEADR.CSS_PATH;
+        this.importJS(todoFormJs);
+        this.importCSS(todoFormCss);
+    }
+
+    renderSignup() {
+        const todoFormJs = env.CHILDREN.TODO_SIGNUP.BASE_URL + env.CHILDREN.TODO_SIGNUP.JS_PATH;
+        const todoFormCss = env.CHILDREN.TODO_SIGNUP.BASE_URL + env.CHILDREN.TODO_SIGNUP.CSS_PATH;
         this.importJS(todoFormJs);
         this.importCSS(todoFormCss);
     }
 
     componentWillMount() {
         // SET ALL THE ENV CONFIG TO ACCISIBLE BY MICRO UI
-        window[`${env.CHILDREN.TODO_FORM.APP_NAME}`] = env.CHILDREN.TODO_FORM;
-        this.renderForm();
+        window[`${env.CHILDREN.TODO_HEADR.APP_NAME}`] = env.CHILDREN.TODO_HEADR;
+        window[`${env.CHILDREN.TODO_SIGNUP.APP_NAME}`] = env.CHILDREN.TODO_SIGNUP;
+        this.renderHeader();
+        this.renderSignup();
     }
 
     componentWillUnmount() {
         document.body.removeChild(this.state.script)
         document.body.removeChild(this.state.link)
-        window[`${env.CHILDREN.TODO_FORM.APP_NAME}`] = {};
+        window[`${env.CHILDREN.TODO_HEADR.APP_NAME}`] = {};
+        window[`${env.CHILDREN.TODO_SIGNUP.APP_NAME}`] = {};
     }
-    //env.APP_NAME.CHILDREN.TODO_FORM.APP_NAME
 
     render() {
         return (
             <div className={`${env.APP_NAME}-container`}>
-                <section id="todo_header_app">
-                </section>
+                <div id="todo_header_app">
+                </div>
+                <div id="todo_signup_app">
+                </div>
             </div>
         )
     }
